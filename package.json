@@ -1,0 +1,62 @@
+{
+  "name": "dendron-handler",
+  "publisher": "iamhardliner",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hardliner66/dendron-handler-extension.git"
+  },
+  "displayName": "Dendron Handler",
+  "description": "Small helper to create links for use with dendron-helper",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dendron-handler.copy-link-to-current-file",
+        "title": "Dendron Handler: Copy link to current file"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "dendron-handler.copy-link-to-current-file",
+        "key": "shift+alt+c",
+        "mac": "shift+alt+c"
+      }
+    ],
+    "configuration": {
+      "title": "Dendron Handler",
+      "type": "object",
+      "properties": {
+        "dendron-handler.vault": {
+          "type": "string",
+          "default": "",
+          "description": "Vault Name"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src",
+    "package": "vsce pack",
+    "deploy": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "20.x",
+    "@types/vscode": "^1.100.0",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "@vscode/vsce": "^3.4.2",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3"
+  }
+}
